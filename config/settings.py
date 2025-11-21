@@ -95,11 +95,16 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Verifica que la carpeta static exista
+STATICFILES_DIRS = []
+static_dir = os.path.join(BASE_DIR, 'static')
+if os.path.exists(static_dir):
+    STATICFILES_DIRS.append(static_dir)
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'usuarios'
