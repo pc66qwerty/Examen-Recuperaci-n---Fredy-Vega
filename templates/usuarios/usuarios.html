@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestion de Usuarios{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="section-header">
+        <div>
+            <h2>Gestion de Usuarios</h2>
+            <p style="color: #7f8c8d; font-size: 14px; margin-top: 4px;">Administre los usuarios del sistema</p>
+        </div>
+        <button onclick="toggleForm()" class="btn btn-primary" id="toggleBtn">Crear Nuevo Usuario</button>
+    </div>
+
+    <div id="formulario" style="display: none; margin-bottom: 40px; padding: 32px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e1e8ed;">
+        <h3 style="margin-bottom: 24px;">Nuevo Usuario</h3>
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div class="form-group">
+                    <label for="username">Nombre de Usuario *</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="first_name">Nombre</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name">
+                </div>
+
+                <div class="form-group">
+                    <label for="last_name">Apellido</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contrasena *</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Telefono</label>
+                    <input type="text" class="form-control" id="telefono" name="telefono">
+                </div>
+
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label for="departamento">Departamento</label>
+                    <input type="text" class="form-control" id="departamento" name="departamento">
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <button type="submit" class="btn btn-primary">Guardar Usuario</button>
+                <button type="button" class="btn" onclick="toggleForm()" style="background: #95a5a6; color: white;">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <h3>Listado de Usuarios</h3>
+    
+    {% if usuarios %}
+    <table>
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Nombre Completo</th>
+                <th>Correo Electronico</th>
+                <th>Fecha de Registro</th>
+                <th style="text-align: center;">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td style="font-weight: 500;">{{ usuario.username }}</td>
+                <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                <td style="color: #7f8c8d;">{{ usuario.email|default:"-" }}</td>
+                <td style="color: #7f8c8d;">{{ usuario.date_joined|date:"d/m/Y H:i" }}</td>
+                <td style="text-align: center;">
+                    <form method="POST" action="{% url 'eliminar_usuario' usuario.id %}" style="display: inline;" 
+                          onsubmit="return confirm('Esta seguro de eliminar este usuario?');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="empty-state">
+        <p>No hay usuarios registrados en el sistema</p>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    function toggleForm() {
+        const form = document.getElementById('formulario');
+        const btn = document.getElementById('toggleBtn');
+        if (form.style.display === 'none') {
+            form.style.display = 'block';
+            btn.textContent = 'Cancelar';
+            btn.style.background = '#95a5a6';
+        } else {
+            form.style.display = 'none';
+            btn.textContent = 'Crear Nuevo Usuario';
+            btn.style.background = '#3498db';
+        }
+    }
+</script>
+{% endblock %}

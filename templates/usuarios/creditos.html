@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Informacion del Proyecto{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 1100px; margin: 0 auto;">
+    <h2 style="margin-bottom: 40px; text-align: center;">Informacion del Proyecto</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+        <div style="padding: 30px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e1e8ed;">
+            <h3 style="color: #2c3e50; margin-bottom: 24px; font-size: 20px;">Datos del Estudiante</h3>
+            <table style="margin: 0; width: 100%;">
+                <tr style="border: none;">
+                    <td style="border: none; font-weight: 600; width: 140px; padding: 12px 0; color: #34495e;">Nombre:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">Fredy Fernando Vega Vasquez</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Carnet:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">3090-13-11795</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Carrera:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">Ingenieria en Sistemas</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="padding: 30px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e1e8ed;">
+            <h3 style="color: #2c3e50; margin-bottom: 24px; font-size: 20px;">Informacion del Curso</h3>
+            <table style="margin: 0; width: 100%;">
+                <tr>
+                    <td style="border: none; font-weight: 600; width: 140px; padding: 12px 0; color: #34495e;">Asignatura:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">Desarrollo Web</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Codigo:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">090-036</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Catedratico:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">Ing. Ivan Antonio de Leon Fuentes</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Ciclo:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">8vo</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Seccion:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">4</td>
+                </tr>
+                <tr>
+                    <td style="border: none; font-weight: 600; padding: 12px 0; color: #34495e;">Semestre:</td>
+                    <td style="border: none; padding: 12px 0; color: #2c3e50;">Segundo 2025</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e1e8ed;">
+        <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 20px;">Descripcion del Proyecto</h3>
+        <p style="color: #34495e; margin-bottom: 12px; line-height: 1.8;">Sistema web de gestion de usuarios desarrollado como parte del examen de recuperacion de la asignatura Desarrollo Web.</p>
+        <p style="color: #34495e; line-height: 1.8;">El sistema permite la administracion completa de usuarios incluyendo funcionalidades de creacion, listado y eliminacion, con un sistema de autenticacion seguro que protege el acceso a las funcionalidades administrativas.</p>
+    </div>
+    
+    <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e1e8ed;">
+        <h3 style="color: #2c3e50; margin-bottom: 20px; font-size: 20px;">Tecnologias Utilizadas</h3>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+            <div style="padding: 16px; background: white; border-radius: 6px; text-align: center;">
+                <p style="color: #2c3e50; font-weight: 600; margin-bottom: 4px;">Django Framework</p>
+                <p style="color: #7f8c8d; font-size: 13px;">Version 5.0</p>
+            </div>
+            <div style="padding: 16px; background: white; border-radius: 6px; text-align: center;">
+                <p style="color: #2c3e50; font-weight: 600; margin-bottom: 4px;">Python</p>
+                <p style="color: #7f8c8d; font-size: 13px;">Version 3.11</p>
+            </div>
+            <div style="padding: 16px; background: white; border-radius: 6px; text-align: center;">
+                <p style="color: #2c3e50; font-weight: 600; margin-bottom: 4px;">SQLite</p>
+                <p style="color: #7f8c8d; font-size: 13px;">Base de Datos</p>
+            </div>
+            <div style="padding: 16px; background: white; border-radius: 6px; text-align: center;">
+                <p style="color: #2c3e50; font-weight: 600; margin-bottom: 4px;">HTML5 & CSS3</p>
+                <p style="color: #7f8c8d; font-size: 13px;">Frontend</p>
+            </div>
+            <div style="padding: 16px; background: white; border-radius: 6px; text-align: center;">
+                <p style="color: #2c3e50; font-weight: 600; margin-bottom: 4px;">Railway</p>
+                <p style="color: #7f8c8d; font-size: 13px;">Deployment</p>
+            </div>
+            <div style="padding: 16px; background: white; border-radius: 6px; text-align: center;">
+                <p style="color: #2c3e50; font-weight: 600; margin-bottom: 4px;">Gunicorn</p>
+                <p style="color: #7f8c8d; font-size: 13px;">WSGI Server</p>
+            </div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; padding: 24px; background: #2c3e50; border-radius: 8px; text-align: center;">
+        <p style="color: #ecf0f1; font-size: 14px; margin: 0;">
+            Universidad Mariano Galvez de Guatemala - Facultad de Ingenieria en Sistemas
+        </p>
+        <p style="color: #95a5a6; font-size: 13px; margin-top: 8px;">
+            Examen de Recuperacion - Noviembre 2025
+        </p>
+    </div>
+</div>
+{% endblock %}
